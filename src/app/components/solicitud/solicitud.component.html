@@ -1,0 +1,19 @@
+<div class="buscar col-lg-4 col-11 row  p-0">
+    <div class="col-4  ">
+        <i class="material-icons">
+            location_on
+        </i>
+        <span class="d-block ">
+            {{solicitud.localidad}}
+        </span>
+        <span class="d-block">
+            {{solicitud.direccion}}
+        </span>
+    </div>
+    <div class="col-8 mt-2 row">
+        <div class=" col-6" *ngFor="let material of solicitud.materiales">
+            <label>{{material.tipo}}: {{material.cantidad}}</label>
+        </div>
+    </div>
+    <button mat-stroked-button (click)="abrirConfirmacion()" class="btn-block p-0" color="primary">Ver Detalle</button>
+</div>

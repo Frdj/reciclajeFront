@@ -1,0 +1,136 @@
+/* You can add global styles to this file, and also import other style files
+font-family: 'Source Sans Pro', sans-serif;
+font-family: 'Muli', sans-serif;
+font-family: 'Rubik', sans-serif;
+*/
+
+html,
+body {
+  font-family: 'Nunito', sans-serif;
+  height: 100%;
+  // background-color: #62B7A1;
+  background-color: rgb(228, 255, 248);
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.logo {
+  margin: 1rem auto;
+  width: 170px;
+  height: 190px;
+  position: relative;
+  animation-name: logo-entrada;
+  animation-duration: 1.5s;
+}
+
+@keyframes logo-entrada {
+  from {
+    top: -500px;
+  }
+  to {
+    top: 0px;
+  }
+}
+
+.aparecer {
+  animation-name: fadeInAndSlice;
+  animation-duration: 0.5s;
+  position: relative;
+  transition: 0.5s;
+}
+
+.fadeIn {
+  animation-name: 'fadeIn';
+  animation-duration: 1s;
+}
+
+.d-block {
+  display: block;
+}
+
+.d-inlineb {
+  display: inline-block;
+}
+
+.d-inline {
+  display: inline;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInAndSlice {
+  from {
+    opacity: 0;
+    top: -100px;
+  }
+  to {
+    opacity: 1;
+    top: 0px;
+  }
+}
+
+.text-center {
+  text-align: center;
+}
+
+// .col-1 {
+//   width: 8.33%;
+// }
+
+// .col-2 {
+//   width: 16.667%;
+// }
+
+// .col-3 {
+//   width: 25%;
+// }
+
+// .col-4 {
+//   width: 33.32%;
+// }
+
+// .col-5 {
+//   width: 41.65%;
+// }
+
+// .col-6 {
+//   width: 48%;
+// }
+
+// .col-7 {
+//   width: 58.31%;
+// }
+
+// .col-8 {
+//   width: 66.64%;
+// }
+
+// .col-9 {
+//   width: 74.97%;
+// }
+
+// .col-10 {
+//   width: 83.3%;
+// }
+
+// .col-11 {
+//   width: 91.63%;
+// }
+
+// .col-12 {
+//   width: 100%;
+// }

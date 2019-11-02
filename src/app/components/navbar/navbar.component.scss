@@ -1,0 +1,27 @@
+mat-toolbar {
+  display: flex;
+  justify-content: space-around;
+  height: 4rem;
+  position: fixed;
+  bottom: 0px;
+  border-top: 5px #00c853 solid;
+}
+
+span {
+  font-size: 1.2rem;
+}
+
+.icono {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.active-link {
+  color: #00c853;
+}
+
+#informate {
+  letter-spacing: -2px;
+}

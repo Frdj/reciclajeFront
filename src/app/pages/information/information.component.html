@@ -1,0 +1,29 @@
+<form>
+    <div class="fadeIn" *ngIf="!loading">
+        <mat-form-field class="container">
+            <input matInput (keyup)="buscar(buscador.value)" #buscador placeholder="Buscar material...">
+        </mat-form-field>
+
+        <mat-chip-list>
+            <mat-chip color="primary" selected (click)="filtrar()">Plástico</mat-chip>
+            <mat-chip color="primary" selected (click)="filtrar($event)">Vidrio</mat-chip>
+            <mat-chip color="primary" selected (click)="filtrar($event)">Papel</mat-chip>
+            <mat-chip color="primary" selected (click)="filtrar($event)">Cartón</mat-chip>
+            <mat-chip color="primary" selected (click)="filtrar($event)">Metal</mat-chip>
+        </mat-chip-list>
+
+        <div class="fila">
+            <div class="item" *ngFor="let item of aux">
+                <mat-card (click)="openModal(item)">
+                    <img mat-card-image class=" img-fluid" [src]="'data:image/jpg;base64, ' + item.imagen | safeHtml">
+                    <mat-card-content>
+                        <p class="text-center">{{ item.residuo }}</p>
+                        <p *ngIf="item.esReciclable" class="text-success text-center">RECICLABLE</p>
+                        <p *ngIf="!item.esReciclable" class="text-danger text-center">NO RECICLABLE</p>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+    <app-loading *ngIf="loading"></app-loading>
+</form>

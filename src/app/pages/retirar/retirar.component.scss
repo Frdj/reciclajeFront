@@ -1,0 +1,50 @@
+.ret {
+  text-align: center;
+  text-justify: center;
+  align-items: center;
+  justify-items: center;
+  justify-content: center;
+  margin-bottom: 100px;
+}
+form {
+  margin-bottom: 70px;
+}
+
+.center {
+  display: inline;
+}
+
+.filtrado {
+  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1rem;
+  justify-content: flex-start;
+  margin: 1rem auto;
+  background-color: white;
+  box-shadow: 2px 3px 10px #404040;
+}
+
+.mat-checkbox {
+  width: 33%;
+}
+
+@keyframes entrar {
+  from {
+    transform: scale(0, 0);
+  }
+  to {
+    transform: scale(1, 1);
+  }
+}
+
+.confirmDialog {
+  border: none;
+  height: 43%;
+  animation-name: entrar;
+  animation-duration: 0.5s;
+}
+
+.mat-raised-button {
+  color: #fff;
+}
