@@ -1,0 +1,5 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/86f37de7-4b93-4b8c-9839-9182af719880/resourceGroups/ReciclajeFront/providers/Microsoft.Web/sites/ReciclajeApp",
+    "appService.deploySubpath": "dist\\reciclajeApp",
+    "appService.showBuildDuringDeployPrompt": false
+}

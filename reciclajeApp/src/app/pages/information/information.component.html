@@ -1,0 +1,65 @@
+<form [ngClass]="{'margen-b': !publicar}">
+    <div class="fadeIn" *ngIf="!loading">
+        <mat-form-field class="container">
+            <input matInput (keyup)="buscar(buscador.value)" #buscador placeholder="Buscar residuo...">
+        </mat-form-field>
+
+        <mat-chip-list>
+            <mat-chip color="primary" selected (click)="filtrar('Plástico')">Plástico</mat-chip>
+            <mat-chip color="primary" selected (click)="filtrar('Vidrio')">Vidrio</mat-chip>
+            <mat-chip color="primary" selected (click)="filtrar('Papel')">Papel</mat-chip>
+            <mat-chip color="primary" selected (click)="filtrar('Cartón')">Cartón</mat-chip>
+            <mat-chip color="primary" selected (click)="filtrar('Metal')">Metal</mat-chip>
+        </mat-chip-list>
+
+        <!-- Para pantalla 'Informate' -->
+        <div *ngIf="!publicar" class="fila">
+            <div class="item" *ngFor="let item of aux">
+                <mat-card class="card" (click)="openModal(item)">
+                    <mat-card-content>
+                        <p class="text-center">{{ item.residuo }}</p>
+                        <img mat-card-image class=" img-fluid"
+                            [src]="'data:image/jpg;base64, ' + item.imagen | safeHtml">
+                        <p *ngIf="item.esReciclable" class="text-success text-center">RECICLABLE</p>
+                        <p *ngIf="!item.esReciclable" class="text-danger text-center">NO RECICLABLE</p>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+
+        <!-- Para pantalla de publicar -->
+        <div *ngIf="publicar">
+            <div class="fila">
+                <div class="item" *ngFor="let item of aux">
+                    <mat-card (click)="openModal(item)">
+                        <mat-card-content>
+                            <p class="text-center">
+                                <span [matBadge]="item.cantidad" matBadgeOverlap="false">
+                                    {{ item.residuo }}
+                                </span>
+                            </p>
+                            <img mat-card-image class=" img-fluid"
+                                [src]="'data:image/jpg;base64, ' + item.imagen | safeHtml" />
+
+                            <!-- Botones -->
+                            <div class="d-flex justify-content-center">
+                                <button mat-mini-fab (click)="cambiarCantidad(-1, item)"
+                                    [disabled]="item.cantidad <= 0">
+                                    <mat-icon>remove</mat-icon>
+                                </button>
+                                <button mat-mini-fab (click)="cambiarCantidad(1, item)">
+                                    <mat-icon>add</mat-icon>
+                                </button>
+                            </div>
+                        </mat-card-content>
+                    </mat-card>
+                </div>
+            </div>
+            <div class="row px-2 mt-2">
+                <button (click)="continuar()" [disabled]="!habilitarContinuar"
+                    class="btn btn-success btn-block">Continuar</button>
+            </div>
+        </div>
+    </div>
+    <app-loading *ngIf="loading"></app-loading>
+</form>
